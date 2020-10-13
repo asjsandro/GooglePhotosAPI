@@ -20,8 +20,8 @@ myAlbums = service.albums().list().execute()
 myAlbums_list = myAlbums.get('albums')
 dfAlbums = pd.DataFrame(myAlbums_list)
 
-print(dfAlbums)
-input('press any key to concinue!')
+#print(dfAlbums)
+#input('press any key to concinue!')
 viagemparamanaus = dfAlbums[dfAlbums['title']== 'Viagem para Manaus']['id'].to_string(index=False).strip()
 
 def download_file(url:str, destination_folder:str, file_name:str):
@@ -37,9 +37,7 @@ print(media_files)
 #input('press any key to continue')
 destination_folder = r'Photos Backup'
 
-'''
 for media_file in media_files:
     file_name = media_file['filename']
     download_url = media_file['baseUrl'] + '=d'
     download_file(download_url, destination_folder, file_name)
-'''
